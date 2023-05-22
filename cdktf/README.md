@@ -1,6 +1,6 @@
 # Getting it working
 
-## Installing
+## Installing CDKTF
 To install the most recent stable release of CDKTF, use npm install with the @latest tag:
 ```shell
 $ npm install --global cdktf-cli@latest
@@ -18,6 +18,21 @@ Commands:
                             for Terraform. Takes the file to be converted on
                             stdin.
 #...
+```
+
+## Installing `node_modules`
+Install [nvm](https://github.com/nvm-sh/nvm):
+```shell
+brew install nvm
+```
+For the purpose of recreation, I used the following:
+```shell
+nvm install 16.19.1 
+nvm use 16.19.1 
+```
+In the specific folder, e.g. `./create-s3-bucket`, run:
+```shell
+npm i
 ```
 
 ## Running
