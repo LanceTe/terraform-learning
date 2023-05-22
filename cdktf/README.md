@@ -62,7 +62,7 @@ cdktf init --template="typescript" --providers="aws@~>4.0"
 ```
 You’ll get prompted to configure the set up. You can choose whether to use Terraform Cloud or not. For learning purposes, I decided to use it.
 
-**Note:** Your Terraform Cloud token will be stored in ~/.terraform.d/credentials.tfrc.json
+**Note:** Your Terraform Cloud token will be stored in `~/.terraform.d/credentials.tfrc.json`
 
 Give it time to run as it will:
 - Generate the Terraform Cloud configuration for the 'lance-learning' organisation and 'create-s3-bucket' workspace.
