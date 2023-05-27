@@ -1,3 +1,9 @@
+locals {
+    allowedOrigins = ((var.environment == "sandbox" || var.environment == "development")
+        ? ["http://localhost:3000", "https://app.${var.environment}.faethm.ai"]
+        : ["https://app.${var.environment}.faethm.ai"])
+}
+
 data "aws_s3_bucket" "buckets" {
     for_each = toset(var.regions)
     bucket   = "${each.key}.lance.chum.bucket"
@@ -21,10 +27,7 @@ resource "aws_s3_bucket_cors_configuration" "bucket_cors" {
     bucket = data.aws_s3_bucket.buckets[each.key].id
 
     cors_rule {
-        allowed_origins = [
-            "http://localhost:4000",
-            "https://app.${var.environment}.faethm.ai"
-        ]
+        allowed_origins = local.allowedOrigins
         allowed_headers = ["*"]
         expose_headers  = [
             "ETag",
