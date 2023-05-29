@@ -1,7 +1,9 @@
 locals {
-    allowedOrigins = ((var.environment == "sandbox" || var.environment == "development")
-        ? ["http://localhost:3000", "https://app.${var.environment}.faethm.ai"]
-        : ["https://app.${var.environment}.faethm.ai"])
+    sandbox = var.environment == "sandbox" ? ["http://localhost:3000", "https://app.sandbox.faethm.ai"] : []
+    development = var.environment == "development" ? ["http://localhost:3000", "https://app.development.faethm.ai"] : []
+    stage = var.environment == "stage" ? ["https://app.stage.faethm.ai"] : []
+    production = var.environment == "production" ? ["https://app.faethm.ai"] : []
+    allowedOrigins = coalescelist(local.sandbox, local.development, local.stage, local.production)
 }
 
 data "aws_s3_bucket" "buckets" {
