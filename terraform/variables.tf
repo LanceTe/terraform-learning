@@ -14,6 +14,10 @@ variable "environment" {
     type = string
     description = "Environment"
     default = "sandbox"
+    validation {
+        condition     = contains(["sandbox", "development", "stage", "production"], var.environment)
+        error_message = "The environment must be one of: `sandbox`, `development`, `stage`, `production`."
+    }
 }
 
 variable "cors_enabled" {
