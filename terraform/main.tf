@@ -20,4 +20,5 @@ module "update-s3-bucket" {
     source  = "./update-s3-bucket"
     regions = var.regions
     environment = var.environment
+    count = var.cors_enabled ? 1 : 0
 }

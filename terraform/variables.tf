@@ -15,3 +15,9 @@ variable "environment" {
     description = "Environment"
     default = "sandbox"
 }
+
+variable "cors_enabled" {
+    type = bool
+    description = "Enable CORS"
+    default = true
+}
