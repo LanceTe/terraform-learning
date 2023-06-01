@@ -1,6 +1,6 @@
 locals {
-    sandbox = var.environment == "sandbox" ? ["http://localhost:3000", "https://app.sandbox.faethm.ai"] : []
-    development = var.environment == "development" ? ["http://localhost:3000", "https://app.development.faethm.ai"] : []
+    sandbox = var.environment == "sandbox" ? ["http://localhost:4000", "https://app.sandbox.faethm.ai"] : []
+    development = var.environment == "development" ? ["http://localhost:4000", "https://app.development.faethm.ai"] : []
     stage = var.environment == "stage" ? ["https://app.stage.faethm.ai"] : []
     production = var.environment == "production" ? ["https://app.faethm.ai"] : []
     allowedOrigins = coalescelist(local.sandbox, local.development, local.stage, local.production)
