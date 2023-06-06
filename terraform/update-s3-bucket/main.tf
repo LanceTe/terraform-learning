@@ -12,7 +12,7 @@ data "aws_s3_bucket" "buckets" {
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "bucket_lifecycle" {
-  for_each = var.cors_enabled ? toset(var.regions) : []
+  for_each = toset(var.regions)
   bucket   = data.aws_s3_bucket.buckets[each.key].id
 
   rule {
