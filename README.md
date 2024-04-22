@@ -7,8 +7,7 @@ Document what I’ve learned about Terraform and CDK for Terraform for my use-ca
 The common set up required is to configure the provider. In my case, this required my AWS credentials.
 
 ```shell
-$ saml2aws login
-$ eval $(saml2aws script)
+eval $(aws-runas -E sandbox)
 ```
 
 The specific `README.md` for Terraform and CDK for Terraform are in their respective sub-folders.
