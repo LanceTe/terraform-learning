@@ -22,3 +22,7 @@ module "update-s3-bucket" {
   environment  = var.environment
   cors_enabled = true
 }
+
+module "upload-file" {
+  source = "./upload-file"
+}
